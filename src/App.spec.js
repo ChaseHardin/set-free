@@ -12,5 +12,6 @@ describe('App Component', () => {
         var component = mount(<App />);
 
         assert.equal(component.find('App').length, 1);
+        assert.equal(component.find('.App-title').text(), 'Welcome to React');
     });
 })
