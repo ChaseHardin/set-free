@@ -7,17 +7,21 @@
     "react-dom": "^16.5.2",
     "react-scripts": "1.1.5"
   },
+  "homepage": "http://chasehardin.github.io/setfree",
   "scripts": {
     "start": "react-scripts start",
     "build": "react-scripts build",
     "test": "react-scripts test --env=jsdom",
     "test-e2e": "nightwatch --env local",
-    "eject": "react-scripts eject"
+    "eject": "react-scripts eject",
+    "predeploy": "npm run build",
+    "deploy": "gh-pages -d build"
   },
   "devDependencies": {
     "chromedriver": "^2.42.0",
     "enzyme": "^3.6.0",
     "enzyme-adapter-react-16": "^1.5.0",
+    "gh-pages": "^2.0.0",
     "jest": "^23.6.0",
     "mocha": "^5.2.0",
     "nightwatch": "^0.9.21",
