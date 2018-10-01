@@ -1,14 +1,21 @@
 import React, { Component } from 'react';
-import logo from './logo.svg';
 import './App.css';
+
+import { BrowserRouter, Switch, Route } from 'react-router-dom';
 import NavbarComponent from './Menu/NavbarComponent';
+import HomeComponent from './Home/HomeComponent';
 
 class App extends Component {
   render() {
     return (
-      <div className='app-styles'>
-        <NavbarComponent />
-      </div>
+      <BrowserRouter>
+        <div className='app-styles'>
+          <NavbarComponent />
+          <Switch>
+            <Route path='/' component={HomeComponent}></Route>
+          </Switch>
+        </div>
+      </BrowserRouter>
     );
   }
 }
