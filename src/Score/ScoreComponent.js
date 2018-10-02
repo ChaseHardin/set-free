@@ -4,7 +4,7 @@ import './ScoreComponent.css';
 const ScoreComponent = () => {
     return (
          <div className="score-title">
-            <h1>Score Page</h1>
+            <h3>Score Page</h3>
         </div>
     )
 }
