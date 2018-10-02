@@ -3,4 +3,9 @@
     margin-right: auto;
     font-size: 2rem;
     font-weight: bold;
+    color: white;
+}
+
+.header-nav {
+    background-color: #4A89DC;
 }

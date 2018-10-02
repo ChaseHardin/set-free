@@ -1,5 +1,5 @@
 a {
-    color: white;
+    color: #4A89DC;
     text-decoration: none;
 }
 
@@ -20,4 +20,8 @@ a:hover
 
 .fa-trophy {
     margin-right: 4rem;
+}
+
+.bottom-navbar {
+    border-top: 1px #4A89DC solid;
 }
