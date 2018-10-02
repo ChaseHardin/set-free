@@ -1,7 +1,7 @@
 import React from 'react';
 import { configure, mount } from 'enzyme';
 import Adapter from 'enzyme-adapter-react-16';
-import NavbarComponent from './NavbarComponent';
+import NavbarComponent from './HeaderNavbarComponent';
 
 var assert = require('assert');
 
