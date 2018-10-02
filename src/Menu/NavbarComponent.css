@@ -1,7 +1,10 @@
 .navbar-title {
-    font-weight: bold;
     margin-left: auto;
     margin-right: auto;
     font-size: 2rem;
-    color: #2B3440;
+    color: white;
+}
+
+.navbar {
+    background-color: #AD081B;
 }

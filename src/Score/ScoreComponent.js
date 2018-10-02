@@ -1,9 +1,10 @@
 import React from 'react';
+import './ScoreComponent.css';
 
 const ScoreComponent = () => {
     return (
          <div className="score-title">
-            Score Page
+            <h1>Score Page</h1>
         </div>
     )
 }
