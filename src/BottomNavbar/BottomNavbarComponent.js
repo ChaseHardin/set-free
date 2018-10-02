@@ -11,6 +11,9 @@ const BottomNavBarComponent = () => {
             <Link to="/score" className="score-route nav-item nav-link">
                 <i className="fa fa-trophy" />
             </Link>
+            <Link to="/profile" className="profile-route nav-item nav-link">
+                <i className="fa fa-user-circle-o" />
+            </Link>
         </nav>
     )
 }

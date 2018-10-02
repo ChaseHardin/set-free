@@ -6,6 +6,7 @@ import HeaderNavbarComponent from './HeaderNavbar/HeaderNavbarComponent';
 import HomeComponent from './Home/HomeComponent';
 import ScoreComponent from './Score/ScoreComponent';
 import BottomNavBarComponent from './BottomNavbar/BottomNavbarComponent';
+import ProfileComponent from './Profile/ProfileComponent';
 
 class App extends Component {
   render() {
@@ -17,6 +18,7 @@ class App extends Component {
           <Switch>
             <Route exact path='/' component={HomeComponent}></Route>
             <Route path="/score" component={ScoreComponent}></Route>
+            <Route path="/profile" component={ProfileComponent}></Route>
           </Switch>
 
           <BottomNavBarComponent />

@@ -5,21 +5,13 @@ a {
 
 a:hover 
 {
-     color: black; 
+     color: #2DCC6F; 
      text-decoration:none; 
      cursor:pointer;  
 }
 
 .fa {
     font-size: 2.4rem;
-}
-
-.home-route {
-    margin-left:4rem;
-}
-
-.fa-trophy {
-    margin-right: 4rem;
 }
 
 .bottom-nav {
