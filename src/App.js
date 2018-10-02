@@ -5,6 +5,7 @@ import { BrowserRouter, Switch, Route } from 'react-router-dom';
 import NavbarComponent from './Menu/NavbarComponent';
 import HomeComponent from './Home/HomeComponent';
 import ScoreComponent from './Score/ScoreComponent';
+import BottomNavBarComponent from './BottomNavbar/BottomNavbarComponent';
 
 class App extends Component {
   render() {
@@ -17,6 +18,8 @@ class App extends Component {
             <Route exact path='/' component={HomeComponent}></Route>
             <Route path="/score" component={ScoreComponent}></Route>
           </Switch>
+
+          <BottomNavBarComponent />
         </div>
       </BrowserRouter>
     );
