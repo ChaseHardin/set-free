@@ -4,7 +4,7 @@ import './BottomNavbarComponent.css';
 
 const BottomNavBarComponent = () => {
     return (
-        <nav className='navbar fixed-bottom bottom-navbar'>
+        <nav className='navbar bottom-nav fixed-bottom'>
             <Link to="/" className="home-route nav-item nav-link">
                 <i className="fa fa-home" />
             </Link>
