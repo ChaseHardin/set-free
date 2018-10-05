@@ -7,13 +7,37 @@ import HomeComponent from './Home/HomeComponent';
 import ScoreComponent from './Score/ScoreComponent';
 import BottomNavBarComponent from './BottomNavbar/BottomNavbarComponent';
 import ProfileComponent from './Profile/ProfileComponent';
+import LoginComponent from './Login/LoginComponent';
+
+import firebase from './Config/fbConfig';
 
 class App extends Component {
+  constructor(props) {
+    super(props);
+    this.state = {
+      user: {}
+    };
+  }
+
+  componentDidMount() {
+    this.authListener();
+  }
+
+  authListener() {
+    firebase.auth().onAuthStateChanged((user) => {
+      if (user) {
+        this.setState({ user });
+      } else {
+        this.setState({ user: null });
+      }
+    });
+  }
+
   render() {
     return (
       <BrowserRouter>
         <div className='app-styles'>
-          <HeaderNavbarComponent />
+          {this.state.user ? <HeaderNavbarComponent /> : <LoginComponent />}
 
           <Switch>
             <Route exact path='/' component={HomeComponent}></Route>
