@@ -4,15 +4,23 @@ class Login extends React.Component {
     constructor(props) {
         super(props);
         this.state = {
-            email: ''
+            email: '',
+            password: ''
         }
 
-        this.handleChange = this.handleChange.bind(this);
+        this.handleEmailChange = this.handleEmailChange.bind(this);
+        this.handlePasswordChange = this.handlePasswordChange.bind(this);
     }
 
-    handleChange(event) {
+    handleEmailChange(event) {
         this.setState({
             email: event.target.value
+        });
+    }
+
+    handlePasswordChange(event) {
+        this.setState({
+            password: event.target.value
         });
     }
 
@@ -27,7 +35,16 @@ class Login extends React.Component {
                             name='email'
                             type='email'
                             placeholder='Enter email address'
-                            onChange={this.handleChange}
+                            onChange={this.handleEmailChange}
+                        />
+
+                        <label htmlFor='passwordInput'>Password</label>
+                        <input id='passwordInput'
+                            className='form-control'
+                            name='password'
+                            placeholder='Enter password'
+                            type='password'
+                            onChange={this.handlePasswordChange}
                         />
                     </div>
                 </form>
