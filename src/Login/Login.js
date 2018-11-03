@@ -26,29 +26,32 @@ class Login extends React.Component {
 
     render() {
         return (
-            <div className='col-md-6'>
-                <form>
-                    <div className='form-group'>
-                        <label htmlFor='emailInput'>Email Address</label>
-                        <input id='emailInput'
-                            className='form-control'
-                            name='email'
-                            type='email'
-                            placeholder='Enter email address'
-                            onChange={this.handleEmailChange}
-                        />
+                <div className='col-md-6 offset-md-3'>
+                    <form>
+                        <div className='form-group'>
+                            <label htmlFor='emailInput'>Email Address</label>
+                            <input id='emailInput'
+                                className='form-control'
+                                name='email'
+                                type='email'
+                                placeholder='Enter email address'
+                                onChange={this.handleEmailChange}
+                            />
 
-                        <label htmlFor='passwordInput'>Password</label>
-                        <input id='passwordInput'
-                            className='form-control'
-                            name='password'
-                            placeholder='Enter password'
-                            type='password'
-                            onChange={this.handlePasswordChange}
-                        />
-                    </div>
-                </form>
-            </div>
+                            <label htmlFor='passwordInput'>Password</label>
+                            <input id='passwordInput'
+                                className='form-control'
+                                name='password'
+                                placeholder='Enter password'
+                                type='password'
+                                onChange={this.handlePasswordChange}
+                            />
+
+                            <button name='loginButton' className='btn btn-primary'>Login</button>
+                            <button name='signupButton' className='btn btn-success'>Signup</button>
+                        </div>
+                    </form>
+                </div>
         );
     }
 }

@@ -7,13 +7,18 @@ import HomeComponent from './Home/HomeComponent';
 import ScoreComponent from './Score/ScoreComponent';
 import BottomNavBarComponent from './BottomNavbar/BottomNavbarComponent';
 import ProfileComponent from './Profile/ProfileComponent';
+import Login from './Login/Login';
 
 class App extends Component {
   render() {
     return (
       <BrowserRouter>
-        <div className='app-styles'>
+        <div className='.app-styles'>
           <HeaderNavbarComponent />
+          
+          <div className='container-fluid'>
+            <Login />
+          </div>
 
           <Switch>
             <Route exact path='/' component={HomeComponent}></Route>

@@ -57,4 +57,20 @@ describe('LoginComponent', () => {
 
         assert(component.state().password, 'myPass')
     });
+
+    it('should render the login button', () => {
+        const component = mount(<Login />);
+        const button = component.find("[name='loginButton']");
+
+        assert.equal(button.length, 1);
+        assert.equal(button.prop('className'), 'btn btn-primary');
+    });
+
+    it('should render the signup button', () => {
+        const component = mount(<Login />);
+        const button = component.find("[name='signupButton']");
+
+        assert.equal(button.length, 1);
+        assert.equal(button.prop('className'), 'btn btn-success');
+    });
 });
