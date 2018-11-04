@@ -21,4 +21,4 @@ jobs:
       - run:
           name: Run Acceptance Tests
           command: |
-            npm start & npm run cypress:open
+            npm start & ./node_modules/.bin/cypress open
