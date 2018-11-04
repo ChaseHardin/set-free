@@ -5,15 +5,12 @@ jobs:
       - image: circleci/node:8
     steps:
       - checkout
-      - restore_cache: # special step to restore the dependency cache
-          key: dependency-cache-{{ checksum "package.json" }}
+      - run:
+          name: 'Remove Node Modules'
+          command: 'rm -rf ./node_modules'
       - run:
           name: Setup Dependencies
           command: npm install
-      - save_cache: # special step to save the dependency cache
-          key: dependency-cache-{{ checksum "package.json" }}
-          paths:
-            - ./node_modules
       - run:
           name: Run Unit Tests
           command: |
