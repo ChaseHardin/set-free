@@ -21,4 +21,4 @@ jobs:
       - run:
           name: Run Acceptance Tests
           command: |
-            npm start & ./node_modules/.bin/cypress open
+            npm start & ./node_modules/.bin/cypress verify & cypress cache path & ./node_modules/.bin/cypress run
