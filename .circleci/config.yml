@@ -1,21 +1,37 @@
 version: 2
+
 jobs:
   build:
     docker:
-      - image: circleci/node:8
+      # the Docker image with Cypress dependencies
+      - image: cypress/base:8
+        environment:
+          ## this enables colors in the output
+          TERM: xterm
+    working_directory: ~/app
+    parallelism: 1
     steps:
       - checkout
+      - restore_cache:
+          keys:
+            - v2-deps-{{ .Branch }}-{{ checksum "package-lock.json" }}
+            - v2-deps-{{ .Branch }}-
+            - v2-deps-
+      - run: npm ci
+      - save_cache:
+          key: v2-deps-{{ .Branch }}-{{ checksum "package-lock.json" }}
+          paths:
+            - ~/.npm
+            - ~/.cache
       - run:
-          name: 'Remove Node Modules'
-          command: 'rm -rf ./node_modules'
+          name: Running Unit Tests
+          command: npm test
       - run:
-          name: Setup Dependencies
-          command: npm install
-      - run:
-          name: Run Unit Tests
-          command: |
-            npm test
-      - run:
-          name: Run Acceptance Tests
-          command: |
-            npm start & ./node_modules/.bin/cypress verify & cypress cache path & ./node_modules/.bin/cypress run
+          name: Running Acceptance tests
+          command: npm start & ./node_modules/.bin/cypress run
+      - store_test_results:
+          path: multiple-results
+      - store_artifacts:
+          path: cypress/videos
+      - store_artifacts:
+          path: cypress/screenshots
