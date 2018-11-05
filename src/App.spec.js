@@ -7,7 +7,7 @@ var assert = require('assert');
 
 configure({ adapter: new Adapter() });
 
-describe('App Component', () => {
+describe('App', () => {
     it('should render app component', () => {
         var component = mount(<App />);
 

@@ -1,7 +1,7 @@
 import React from 'react';
-import './ScoreComponent.css';
+import './Score.css';
 
-const ScoreComponent = () => {
+const Score = () => {
     return (
          <div className="score-title">
             <h3>Score Page</h3>
@@ -9,4 +9,4 @@ const ScoreComponent = () => {
     )
 }
 
-export default ScoreComponent;
+export default Score;
