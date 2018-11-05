@@ -1,7 +1,7 @@
 import React from 'react';
-import './HomeComponent.css';
+import './Home.css';
 
-const HomeComponent = () => {
+const Home = () => {
     return (
         <div className="home-title">
             <h3>Home Page</h3>
@@ -9,4 +9,4 @@ const HomeComponent = () => {
     )
 };
 
-export default HomeComponent;
+export default Home;

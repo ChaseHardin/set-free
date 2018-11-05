@@ -7,7 +7,7 @@ var assert = require('assert');
 
 configure({ adapter: new Adapter() });
 
-describe('LoginComponent', () => {
+describe('Login', () => {
     it('shoulad render Login component', () => {
         const component = mount(<Login />);
 
