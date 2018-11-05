@@ -1,8 +1,8 @@
 import React from 'react';
 
-import './HeaderNavbarComponent.css';
+import './HeaderNavbar.css';
 
-const HeaderNavbarComponent = () => {
+const HeaderNavbar = () => {
     return (
         <nav className='navbar fixed-top header-nav'>
             <span className='navbar-title'>SetFree</span>
@@ -10,4 +10,4 @@ const HeaderNavbarComponent = () => {
     )
 }
 
-export default HeaderNavbarComponent;
+export default HeaderNavbar;

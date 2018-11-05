@@ -1,8 +1,8 @@
 import React from 'react';
 import { Link } from 'react-router-dom'
-import './BottomNavbarComponent.css';
+import './BottomNavbar.css';
 
-const BottomNavBarComponent = () => {
+const BottomNavBar = () => {
     return (
         <nav className='navbar bottom-nav fixed-bottom'>
             <Link to="/" className="home-route nav-item nav-link">
@@ -18,4 +18,4 @@ const BottomNavBarComponent = () => {
     )
 }
 
-export default BottomNavBarComponent;
+export default BottomNavBar;
