@@ -1,6 +1,8 @@
 import React from 'react';
 import firebase from '../../FireBaseConfig';
 
+import './Login.css';
+
 class Login extends React.Component {
     constructor(props) {
         super(props);
@@ -24,28 +26,35 @@ class Login extends React.Component {
 
     render() {
         return (
-            <div className='login-container col-md-6'>
-                <form>
+            <div className='login-container col-md-6  col-lg-4 offset-lg-4'>
+                <nav className='navbar fixed-top banner'>
+                    <h1>SetFree</h1>
+                </nav>
+                <form className='login-form'>
                     <div className='form-group'>
-                        <label htmlFor='emailInput'>Email Address</label>
+                        <label htmlFor='emailInput'>Email</label>
                         <input id='emailInput'
                             className='form-control'
                             name='email'
                             type='email'
-                            placeholder='Enter email address'
+                            placeholder='Enter email...'
                             onChange={this.handleChange}
                         />
+                    </div>
+                    <div className='form-group'>
+                        <label>Password</label>
                         <input id='passwordInput'
                             name='password'
+                            className='form-control'
                             type='password'
                             placeholder='Enter password...'
                             onChange={this.handleChange}
                         />
-                        <button name='login-button'
-                            type='submit'
-                            className='btn btn-success'
-                            onClick={this.login}>Login</button>
                     </div>
+                    <button name='login-button'
+                        type='submit'
+                        className='btn btn-success btn-lg btn-block'
+                        onClick={this.login}>Login</button>
                 </form>
             </div>
         );

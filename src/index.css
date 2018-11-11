@@ -3,3 +3,9 @@
   padding: 0;
   font-family: sans-serif;
 }
+
+.btn-success {
+  background-color: #2DCC6F;
+  border-color: #2DCC6F;
+  border-radius: 20px;
+}

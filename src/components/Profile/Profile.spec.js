@@ -11,6 +11,6 @@ describe('Profile', () => {
     it('shoulad render profile message', () => {
         var component = mount(<Profile />);
 
-        assert.equal(component.find('.profile-title').text(), 'Profile Page');
+        assert.equal(component.find('.profile-title h3').text(), 'Profile Page');
     });
 });

@@ -11,7 +11,9 @@ describe('NavbarNavigation', () => {
     });
 
     afterEach(() => {
-        cy.get('.btn-danger').click();
+        cy.visit('http://localhost:3000/profile');
+        cy.get('.profile-title button').click();
+        cy.wait(150);
     });
 
     it('Should start at Home Page with App Title', () => {
