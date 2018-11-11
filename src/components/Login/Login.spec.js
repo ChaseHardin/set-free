@@ -23,16 +23,22 @@ describe('Login', () => {
         assert.equal(email.prop('placeholder'), 'Enter email address');
     });
 
-    it('should update state when email is entered', () => {
+    it('should have password input with correct props', () => {
         const component = mount(<Login />);
-        
-        assert.equal(component.state().email, '', 'PRE-CHECK: email should be set to empty');
+        const password = component.find("[name='password']");
 
-        const email = component.find("[name='email']");
+        assert.equal(password.length, 1);
+        assert.equal(password.prop('type'), 'password');
+        assert.equal(password.prop('placeholder'), 'Enter password...');
+    });
 
-        email.simulate('change', {target: {value: 'email@email.com'}});
-        component.update();
-        
-        assert(component.state().email, 'email@email.com');
+    it('should have submit button with correct props', () => {
+        const component = mount(<Login />);
+        const submitButton = component.find("[name='login-button']");
+
+        assert.equal(submitButton.length, 1);
+        assert.equal(submitButton.prop('type'), 'submit');
+        assert.equal(submitButton.prop('className'), 'btn btn-success');
+        assert.equal(submitButton.text(), 'Login');
     });
 });
