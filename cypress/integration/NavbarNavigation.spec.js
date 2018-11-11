@@ -1,22 +1,31 @@
 describe('NavbarNavigation', () => {
-    it('Should start at Home Page with App Title', () => {
+    beforeEach(() => {
         cy.visit('http://localhost:3000/');
+        cy.get('#emailInput')
+            .type('test@email.com');
 
+        cy.get('#passwordInput')
+            .type('test123');
+
+        cy.get('.btn-success').click();
+    });
+
+    afterEach(() => {
+        cy.get('.btn-danger').click();
+    });
+
+    it('Should start at Home Page with App Title', () => {
         cy.get('.navbar-title').contains('SetFree');
         cy.get('.home-title').contains('Home Page');
     });
 
     it('should navigate to Home Screen', () => {
-        cy.visit('http://localhost:3000/profile');
-
         cy.get('.home-route').click();
 
         cy.get('.home-title').contains('Home Page');
     });
 
     it('should navigate to Score Screen', () => {
-        cy.visit('http://localhost:3000/');
-
         cy.get('.score-route').click();
 
         cy.url().should('include', '/score');
@@ -24,8 +33,6 @@ describe('NavbarNavigation', () => {
     });
 
     it('should navigate to Profile Screen', () => {
-        cy.visit('http://localhost:3000/');
-
         cy.get('.profile-route').click();
 
         cy.url().should('include', '/profile');

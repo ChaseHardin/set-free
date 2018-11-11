@@ -7,21 +7,51 @@ import Home from './components/Home/Home';
 import Score from './components/Score/Score';
 import BottomNavbar from './components/BottomNavbar/BottomNavbar';
 import Profile from './components/Profile/Profile';
+import Login from './components/Login/Login';
+import firebase from './FireBaseConfig';
 
 class App extends Component {
+  constructor(props) {
+    super(props);
+    this.state = {
+      user: {}
+    }
+  }
+
+  componentDidMount() {
+    this.authenticationListener();
+  }
+
+  authenticationListener() {
+    firebase.auth().onAuthStateChanged((user) => {
+      user ? this.setState({ user }) : this.setState({ user: null })
+    });
+  }
+
+  renderRoutes = () => {
+    return (
+      <Switch>
+        <Route exact path='/' component={Home}></Route>
+        <Route path="/score" component={Score}></Route>
+        <Route path="/profile" component={Profile}></Route>
+      </Switch>);
+  } 
+
+  renderAppContents = () => {
+    return (
+      <div>
+        <HeaderNavbar />
+        {this.renderRoutes()}
+        <BottomNavbar />
+      </div>
+    )
+  }
+
   render() {
     return (
       <BrowserRouter>
         <div className='app-styles'>
-          <HeaderNavbar />
-
-          <Switch>
-            <Route exact path='/' component={Home}></Route>
-            <Route path="/score" component={Score}></Route>
-            <Route path="/profile" component={Profile}></Route>
-          </Switch>
-
-          <BottomNavbar />
+          {this.state.user ? this.renderAppContents() : <Login />}
         </div>
       </BrowserRouter>
     );

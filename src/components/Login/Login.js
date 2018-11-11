@@ -1,24 +1,30 @@
 import React from 'react';
+import firebase from '../../FireBaseConfig';
 
 class Login extends React.Component {
     constructor(props) {
         super(props);
         this.state = {
-            email: ''
+            email: '',
+            password: ''
         }
 
         this.handleChange = this.handleChange.bind(this);
+        this.login = this.login.bind(this);
     }
 
     handleChange(event) {
-        this.setState({
-            email: event.target.value
-        });
+        this.setState({ [event.target.name]: event.target.value });
+    }
+
+    login(e) {
+        e.preventDefault();
+        firebase.auth().signInWithEmailAndPassword(this.state.email, this.state.password);
     }
 
     render() {
         return (
-            <div className='col-md-6'>
+            <div className='login-container col-md-6'>
                 <form>
                     <div className='form-group'>
                         <label htmlFor='emailInput'>Email Address</label>
@@ -29,6 +35,16 @@ class Login extends React.Component {
                             placeholder='Enter email address'
                             onChange={this.handleChange}
                         />
+                        <input id='passwordInput'
+                            name='password'
+                            type='password'
+                            placeholder='Enter password...'
+                            onChange={this.handleChange}
+                        />
+                        <button name='login-button'
+                            type='submit'
+                            className='btn btn-success'
+                            onClick={this.login}>Login</button>
                     </div>
                 </form>
             </div>
