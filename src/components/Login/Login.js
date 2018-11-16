@@ -26,7 +26,7 @@ class Login extends React.Component {
 
     render() {
         return (
-            <div className='login-container col-md-6  col-lg-4 offset-lg-4'>
+            <div className='login-container col-md-6  col-lg-4 offset-lg-4 offset-md-3'>
                 <nav className='navbar fixed-top banner'>
                     <h1>SetFree</h1>
                 </nav>
