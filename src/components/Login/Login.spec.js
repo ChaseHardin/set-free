@@ -9,22 +9,18 @@ configure({ adapter: new Adapter() });
 
 describe('Login', () => {
     it('should render Login component', () => {
-        const component = mount(<Login />);
-
-        assert.equal(component.length, 1);
+        assert.equal(render().length, 1);
     });
 
     it('should render login banner', () => {
-        const component = mount(<Login />);
-        const banner = component.find('.banner');
+        const banner = render().find('.banner');
 
         assert.equal(banner.length, 1);
         assert.equal(banner.find('h1').text(), 'SetFree');
     });
 
     it('should have email input with correct props', () => {
-        const component = mount(<Login />);
-        const email = component.find("[name='email']");
+        const email = render().find("[name='email']");
        
         assert.equal(email.length, 1);
         assert.equal(email.prop('type'), 'email');
@@ -32,8 +28,7 @@ describe('Login', () => {
     });
 
     it('should have password input with correct props', () => {
-        const component = mount(<Login />);
-        const password = component.find("[name='password']");
+        const password = render().find("[name='password']");
 
         assert.equal(password.length, 1);
         assert.equal(password.prop('type'), 'password');
@@ -42,12 +37,21 @@ describe('Login', () => {
     });
 
     it('should have submit button with correct props', () => {
-        const component = mount(<Login />);
-        const submitButton = component.find("[name='login-button']");
+        const submitButton = render().find("[name='login-button']");
 
         assert.equal(submitButton.length, 1);
         assert.equal(submitButton.prop('type'), 'submit');
         assert.equal(submitButton.prop('className'), 'btn btn-success btn-lg btn-block');
         assert.equal(submitButton.text(), 'Login');
     });
+
+    function render() {
+        const store = {
+            user: {
+                name: 'users name'
+            }
+        };
+
+        return mount(<Login store={store}/>);
+    }
 });
