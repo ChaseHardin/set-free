@@ -1,8 +1,10 @@
 import React from 'react';
+import {observer} from 'mobx-react';
 import firebase from '../../FireBaseConfig';
 
 import './Login.css';
 
+@observer('user')
 class Login extends React.Component {
     constructor(props) {
         super(props);
@@ -10,6 +12,8 @@ class Login extends React.Component {
             email: '',
             password: ''
         }
+
+        console.log(this.props.user.name);
 
         this.handleChange = this.handleChange.bind(this);
         this.login = this.login.bind(this);

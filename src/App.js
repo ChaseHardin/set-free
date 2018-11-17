@@ -1,5 +1,6 @@
 import React, { Component } from 'react';
 import './App.css';
+import {Provider} from 'mobx-react';
 
 import { BrowserRouter, Switch, Route } from 'react-router-dom';
 import HeaderNavbar from './components/HeaderNavbar/HeaderNavbar';
@@ -9,6 +10,7 @@ import BottomNavbar from './components/BottomNavbar/BottomNavbar';
 import Profile from './components/Profile/Profile';
 import Login from './components/Login/Login';
 import firebase from './FireBaseConfig';
+import stores from './stores'
 
 class App extends Component {
   constructor(props) {
@@ -50,9 +52,11 @@ class App extends Component {
   render() {
     return (
       <BrowserRouter>
-        <div className='app-styles'>
-          {this.state.user ? this.renderAppContents() : <Login />}
-        </div>
+        <Provider user={stores.user}>
+          <div className='app-styles'>
+            {this.state.user ? this.renderAppContents() : <Login />}
+          </div>
+        </Provider>
       </BrowserRouter>
     );
   }
