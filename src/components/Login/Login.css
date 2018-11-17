@@ -7,8 +7,13 @@
     margin-top: 200px;
 }
 
-h1 {
+.login-container h1 {
     color: white;
     margin-left: auto;
     margin-right: auto;
+}
+
+.login-container label {
+    color: #2DCC6F;
+    font-weight: bold;
 }
