@@ -24,12 +24,4 @@ describe('Logout with Firebase', () => {
 
         cy.get('.btn-success').click();
     })
-
-    it('should logout of the application', () => {
-        cy.visit('http://localhost:3000/profile');
-        cy.get('.btn-danger').click();
-        cy.wait(150);
-        
-        cy.get('.login-container').contains('SetFree');
-    });
 });
